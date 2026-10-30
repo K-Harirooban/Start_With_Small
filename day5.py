@@ -45,3 +45,31 @@ plt.xticks(rotation=90)
 
 plt.tight_layout()
 plt.show()
+
+#Seaborn — Sales by region Let's compare regional performance using Seaborn.
+
+region_sales = df.groupby("Region",as_index=False)["Sales"].sum()
+
+sns.barplot(
+    data = region_sales,
+    x="Region",
+    y = "Sales"
+)
+
+plt.title("Sales by region")
+plt.show()
+
+#Scatter plot — Sales vs Profit Do higher-sales orders always generate higher profit?
+
+sns.scatterplot(
+    data = df,
+    x = "Profit",
+    y = "Sales"
+)
+
+plt.title("Sales vs Profit")
+plt.show()
+
+plt.savefig("category_sales.png", bbox_inches="tight")
+
+plt.show()
